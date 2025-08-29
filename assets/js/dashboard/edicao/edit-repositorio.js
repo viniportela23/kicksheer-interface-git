@@ -14,15 +14,15 @@ async function setupEditRepositorio(button) {
       content: `
         <form id="form-repositorio-${idRandom}">
           <div class="form-group">
-            <label for="repositorio-link_repositorio-${idRandom}">Nome</label>
+            <label for="repositorio-link_repositorio-${idRandom}">Link Repositorio</label>
             <input type="text" id="repositorio-link_repositorio-${idRandom}" value="${repositorio.link_repositorio || ''}" required>
           </div>
           <div class="form-group">
-            <label for="repositorio-diretorio-${idRandom}">Preço</label>
+            <label for="repositorio-diretorio-${idRandom}">Diretorio</label>
             <input type="text" id="repositorio-diretorio-${idRandom}" value="${repositorio.diretorio || ''}" required>
           </div>
           <div class="form-group">
-            <label for="repositorio-link_page-${idRandom}">Preço</label>
+            <label for="repositorio-link_page-${idRandom}">Link da Pagina</label>
             <input type="text" id="repositorio-link_page-${idRandom}" value="${repositorio.link_page || ''}" required>
           </div>
           <div class="form-group switch-group">
