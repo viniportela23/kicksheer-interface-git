@@ -2,36 +2,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     document.addEventListener('click', async (e) => {
-        if (e.target.closest('#btn-acao-repositorio')) {
+        if (e.target.closest('#btn-acoes-cloudfler')) {
             e.preventDefault();
-            await loadAcaoRepositorio();
+            await loadAcaoCloudfler();
         }
     });
 
 
-    const loadAcaoRepositorio = async () => {
+    const loadAcaoCloudfler = async () => {
         // Continua com o carregamento do layout (com ou sem confirmação)
         const cabecalhoTableBody = document.getElementById('cabecalho-da-tabela');
         const tableBody = document.getElementById('corpo-da-tabela');
         const tituloBody = document.getElementById('titulo-pagina');
         const btnAddBody = document.getElementById('botao-adicao');
-        const btnAcaoRepositorioBody = document.getElementById('div-acao-repositorio');
+        const btnAcaoRepositorioBody = document.getElementById('div-acoes-cloudfler');
 
         if (!tableBody) return;
 
         // Limpa o conteúdo atual
+
         cabecalhoTableBody.innerHTML = '';
         tableBody.innerHTML = '';
         tituloBody.innerHTML = '';
         btnAddBody.innerHTML = '';
 
-        btnAcaoRepositorioBody.innerHTML = '<a href="#" id="btn-acao-repositorio" class="menu-item active"><span>Açoes Repositorios</span></a>';
+        btnAcaoRepositorioBody.innerHTML = '<a href="#" id="btn-acoes-cloudfler" class="menu-item active"><span>Limpar Cache</span></a>';
 
         cabecalhoTableBody.innerHTML = '<tr><th>Operacão</th><th>Pagina</th><th>Status</th><th style="width: 240px;">Ações</th></tr>';
 
         tableBody.innerHTML = '<tr><td colspan="3" class="text-center">Carregando dados...</td></tr>';
 
-        tituloBody.innerHTML = '<h2 id="titulo-pagina">Açoes Repositorios</h2>';
+        tituloBody.innerHTML = '<h2 id="titulo-pagina">Açoes Cloudfler</h2>';
 
         document.querySelectorAll('.menu-item').forEach(item => {
             item.classList.remove('active');
@@ -65,14 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.innerHTML = `
                     <td><select class="custom-select" id="acao">
                         <option value="" selected disabled>Selecione uma ação</option>
-                        <option value="1">clone</option>
-                        <option value="2">pull</option>
-                        <option value="3">restore</option>
+                        <option value="1">Limpar Tudo</option>
+                        <option value="2">Limpar Link</option>
                     </select></td>
                     <td>${layout.link_page}</td>
                     <td>${status}</td>
                     <td style="width: 280px;">
-                        <button id="btn-realizar-repositorio" id-repositorio="${layout.id}" class="action-btn edit">Realizar Operacao</button>
+                        <button id="btn-realizar-cloudfler" id-repositorio="${layout.id}" class="action-btn edit">Realizar Operacao</button>
                     </td>
                 `;
                 

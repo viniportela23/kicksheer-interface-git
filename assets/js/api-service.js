@@ -76,6 +76,10 @@ class ApiService {
         return this.request('acao/repositorios', 'PUT', { id, modo });
     }
 
+    async acaoCloudfler(id, modo) {
+        return this.request('acao/cloudfler', 'PUT', { id, modo });
+    }
+
     async deletRepositorio(id) {
         return this.request('deletar/repositorios', 'DELETE', { id });
     }
