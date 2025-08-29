@@ -1,17 +1,18 @@
-function setupGlobalEventListenersProdCardapio() {
+// Configura o event delegation
+function setupGlobalEventListenersAnunciantes() {
   document.addEventListener('click', function(event) {    
     // Adiciona o listener para o botão de alterar status
-    if (event.target && event.target.id === 'btn-deletar-produto') {
+    if (event.target && event.target.id === 'btn-deletar-repositorio') {
       event.preventDefault();
-      deletarProduto(event.target);
+      deletarAnunciante(event.target);
     }
   });
 }
 
 // Função para alterar o status do produto
-async function deletarProduto(button) {
-  const idProduto = button.getAttribute('id-produto');
-
+async function deletarAnunciante(button) {
+  const idAnunciante = button.getAttribute('id-repositorio');
+  
   // Mostra o modal de confirmação
   const result = await Swal.fire({
     title: 'Tem certeza?',
@@ -27,21 +28,21 @@ async function deletarProduto(button) {
   // Se o usuário confirmar, prossegue com a deleção
   if (result.isConfirmed) {
     try {
-      const response = await apiService.deletProdCardapio(idProduto);
+      const response = await apiService.deletRepositorio(idAnunciante);
       
-      toastr.success('Produto deletado com sucesso!', 'Sucesso', {
+      toastr.success('Anunciante deletado com sucesso!', 'Sucesso', {
         timeOut: 5000
       });
       
       // Atualiza a interface conforme necessário
-      const anunciantesButton = document.getElementById('btn-prod-cardapio');
+      const anunciantesButton = document.getElementById('btn-repositorio');
       if (anunciantesButton) {
-        anunciantesButton.click(); // Recarrega a lista de produtos
+        anunciantesButton.click();
       }
       
     } catch (error) {
-      console.error('Erro ao deletar produto:', error);
-      toastr.error(error.message || 'Erro ao deletar produto', 'Erro', {
+      console.error('Erro ao deletar anunciante:', error);
+      toastr.error(error.message || 'Erro ao deletar anunciante', 'Erro', {
         timeOut: 5000
       });
     }
@@ -49,4 +50,4 @@ async function deletarProduto(button) {
 }
 
 // Inicializa os listeners globais quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', setupGlobalEventListenersProdCardapio);
+document.addEventListener('DOMContentLoaded', setupGlobalEventListenersAnunciantes);

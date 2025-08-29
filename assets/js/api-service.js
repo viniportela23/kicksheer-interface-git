@@ -23,15 +23,9 @@ class ApiService {
         } 
         // Para outros métodos, trata o corpo normalmente
         else if (method !== 'GET') {
-            if (!isFormData) {
-                headers['Content-Type'] = 'application/json';
-                if (data) {
-                    config.body = JSON.stringify(data);
-                }
-            } else {
-                if (data) {
-                    config.body = data;
-                }
+            headers['Content-Type'] = 'application/json';
+            if (data) {
+                config.body = JSON.stringify(data);
             }
         }
 
@@ -66,101 +60,24 @@ class ApiService {
         return this.request('auth/login', 'POST', { username, password, remember });
     }
 
-    async usuario() {
-        return this.request('lista/usuario', 'GET');
+    async listaRepositorios(id = null, status = null) {
+        return this.request('lista/repositorios', 'GET', { id ,status });
     }
 
-    async notificacoes() {
-        return this.request('lista/notificacoes', 'GET');
+    async addRepositorios(link_repositorio, diretorio, link_page, status) {
+        return this.request('adiciona/repositorios', 'POST', { link_repositorio, diretorio, link_page, status });
     }
 
-    async anunciantes(id = null, status = null) {
-        return this.request('lista/anunciantes', 'GET', { id ,status });
+    async editRepositorio(id, status, link_repositorio = null, diretorio = null, link_page = null) {
+        return this.request('update/repositorios', 'PUT', { id, link_repositorio, diretorio, link_page, status });
     }
 
-    async layoutCardapio(id = null, status = null) {
-        return this.request('lista/layoutCardapio', 'GET', { id ,status });
+    async acaoRepositorio(id, modo) {
+        return this.request('acao/repositorios', 'PUT', { id, modo });
     }
 
-    async prodCardapio(id = null, status = null) {
-        return this.request('lista/prodCardapio', 'GET', { id ,status });
-    }
-
-    async addAnunciantes(nome, arquivo, tempo, data_finalizacao, status) {
-        const formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('tempo', tempo);
-        formData.append('data_finalizacao', data_finalizacao);
-        formData.append('status', status);
-        formData.append('arquivo', arquivo);
-
-        return this.request('adiciona/anunciantes', 'POST', formData, true);
-    }
-
-    async addProdCardapio(nome, preco, status) {
-        return this.request('adiciona/prodCardapio', 'POST', { nome, preco, status });
-    }
-
-    async addLayoutCardapio(nome, arquivo, status, tempo, corTitulo, corFundo, corNome, corPreco) {
-        const formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('status', status);
-        formData.append('tempo', tempo);
-        formData.append('corTitulo', corTitulo);
-        formData.append('corFundo', corFundo);
-        formData.append('corNome', corNome);
-        formData.append('corPreco', corPreco);
-        formData.append('arquivo', arquivo);
-
-        return this.request('adiciona/layoutCardapio', 'POST', formData, true);
-    }
-
-    async editAnunciantes(id, status, nome = null, tempo = null, data_finalizacao = null, arquivo = null) {
-        const formData = new FormData();
-        formData.append('id', id);
-        formData.append('nome', nome);
-        formData.append('tempo', tempo);
-        formData.append('data_finalizacao', data_finalizacao);
-        formData.append('status', status);
-        formData.append('arquivo', arquivo);
-
-        return this.request('update/anunciantes', 'POST', formData, true);
-    }
-
-    async editProdCardapio(id, status, nome = null, preco = null) {
-        return this.request('update/prodCardapio', 'PUT', { id, nome, preco, status });
-    }
-
-    async editNotificacoes(id, status) {
-        return this.request('update/notificacoes', 'PUT', { id, status });
-    }
-
-    async editLayoutCardapio(id, status, nome = null, arquivo = null, tempo = null, corTitulo = null, corFundo = null, corNome = null, corPreco = null) {
-        const formData = new FormData();
-        formData.append('id', id);
-        formData.append('nome', nome);
-        formData.append('status', status);
-        formData.append('tempo', tempo);
-        formData.append('corTitulo', corTitulo);
-        formData.append('corFundo', corFundo);
-        formData.append('corNome', corNome);
-        formData.append('corPreco', corPreco);
-
-        formData.append('arquivo', arquivo);
-
-        return this.request('update/layoutCardapio', 'POST', formData, true);
-    }
-
-    async deletAnunciantes(id) {
-        return this.request('deletar/anunciantes', 'DELETE', { id });
+    async deletRepositorio(id) {
+        return this.request('deletar/repositorios', 'DELETE', { id });
     }
     
-    async deletProdCardapio(id) {
-        return this.request('deletar/prodCardapio', 'DELETE', { id });
-    }  
-
-    async deletLayoutCardapio(id) {
-        return this.request('deletar/layoutCardapio', 'DELETE', { id });
-    }
-
 }

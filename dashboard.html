@@ -21,36 +21,19 @@
             </div>
             
             <nav id="nav-menu" class="sidebar-menu">
-                <div id="div-anunciantes">
-                    <a href="#" id="btn-anunciantes" class="menu-item">
-                        <span>Lista de anúnciantes</span>
+                <div id="div-repositorio">
+                    <a href="#" id="btn-repositorio" class="menu-item">
+                        <span>Lista de Repositorios</span>
                     </a>
                 </div>
-                <div id="div-prod-cardapio">
-                    <a href="#" id="btn-prod-cardapio" class="menu-item">
-                        <span>Produtos do cardápio</span>
+                <div id="div-acao-repositorio">
+                    <a href="#" id="btn-acao-repositorio" class="menu-item">
+                        <span>Açoes Repositorios</span>
                     </a>
                 </div>
                 <div id="div-layout-cardapio">
                     <a href="#" id="btn-layout-cardapio" class="menu-item">
-                        <span>Layout de cardápios</span>
-                    </a>
-                </div>
-                <!--
-                <div id="div-destivado1">
-                    <a href="#" class="menu-item">
-                        <span>Desativado</span>
-                    </a>
-                </div>
-                <div id="div-destivado2">
-                    <a href="#" class="menu-item">
-                        <span>Desativado</span>
-                    </a>
-                </div>
-                -->
-                <div id="div-tela-de-anuncios">
-                    <a href="./anuncios.html" class="menu-item" target="_blank">
-                        <span>Tela de Anuncios</span>
+                        <span>Limpar cache</span>
                     </a>
                 </div>
             </nav>
@@ -64,36 +47,9 @@
         <div class="main-content">
             <!-- Top Bar -->
             <div class="top-bar">
-                <div id="nome-user" class="user-info">
+                <div class="user-info">
                     <span>Bem-vindo</span>
                 </div>
-                <div id="vencimento-user" class="notification-item">
-                    <span></span>
-                </div>
-
-                <div class="notifications">
-                  <div id="btn-notificacoes" class="notification-item">
-                    <div class="notification-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                      </svg>
-                      <div id="numero-notificacoes">
-                      </div>
-                    </div>
-                    <span>Alertas</span>
-                  </div>
-                  <a href="perfil.html" class="notification-item profile-link">
-                    <div class="notification-icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
-                    </div>
-                    <span>Perfil</span>
-                  </a>
-                </div>
-
             </div>
             
             <!-- Content -->
@@ -124,24 +80,15 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/dashboard/base-modal.js"></script>
 
-    <script src="./assets/js/dashboard/listagem/dados-usuario.js"></script>
-    <script src="./assets/js/dashboard/listagem/anunciantes.js"></script>
-    <script src="./assets/js/dashboard/listagem/prod-cardapio.js"></script>
-    <script src="./assets/js/dashboard/listagem/layout-cardapio.js"></script>
-    <script src="./assets/js/dashboard/listagem/notificacoes.js"></script>
+    <script src="./assets/js/dashboard/listagem/list-repositorio.js"></script>
+    <script src="./assets/js/dashboard/listagem/acoes-repositorios.js"></script>
 
-    <script src="./assets/js/dashboard/adicao/add-anunciantes.js"></script>
-    <script src="./assets/js/dashboard/adicao/add-prod-cardapio.js"></script>
-    <script src="./assets/js/dashboard/adicao/add-layout-cardapio.js"></script>
+    <script src="./assets/js/dashboard/adicao/add-repositorio.js"></script>
 
-    <script src="./assets/js/dashboard/edicao/edit-anunciantes.js"></script>
-    <script src="./assets/js/dashboard/edicao/edit-prod-cardapio.js"></script>
-    <script src="./assets/js/dashboard/edicao/edit-layout-cardapio.js"></script>
-    <script src="./assets/js/dashboard/edicao/edit-notificacoes.js"></script>
+    <script src="./assets/js/dashboard/edicao/edit-repositorio.js"></script>
+    <script src="./assets/js/dashboard/edicao/acao-repositorio.js"></script>
 
-    <script src="./assets/js/dashboard/deletar/delet-anunciantes.js"></script>
-    <script src="./assets/js/dashboard/deletar/delet-prod-cardapio.js"></script>
-    <script src="./assets/js/dashboard/deletar/delet-layout-cardapio.js"></script>
+    <script src="./assets/js/dashboard/deletar/delet-repositorio.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
